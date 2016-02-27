@@ -1,0 +1,21 @@
+{
+  "name": "todo-app",
+  "version": "0.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "build": "babel --watch src -d lib"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "angular-ui-router": "~0.2.18",
+    "angular": "~1.5.0",
+    "express": "~4.13.4",
+    "mongoose": "~4.4.5",
+    "body-parser": "~1.15.0"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.5.1"
+  }
+}

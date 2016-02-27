@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ToDo">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="node/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <div ui-view="login"></div>
+  <div ui-view="todo"></div>
+
+
+
+  <!-- Dist -->
+  <script type="text/javascript" src="node/jquery/dist/jquery.js" charset="utf-8"></script>
+  <script type="text/javascript" src="node/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+  <!-- Main -->
+  <script src="node/angular/angular.js" charset="utf-8"></script>
+  <script src="node/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
+  <script type="text/javascript" src="app.js" charset="utf-8"></script>
+  <!-- Controllers -->
+  <script type="text/javascript" src="controllers/todoController.js" charset="utf-8"></script>
+  <script type="text/javascript" src="controllers/loginController.js" charset="utf-8"></script>
+</body>
+</html>

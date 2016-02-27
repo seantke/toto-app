@@ -1,0 +1,7 @@
+.done{
+  text-decoration: line-through;
+  color: #ccc;
+}
+.todoForm{
+  margin-bottom:50px;
+}

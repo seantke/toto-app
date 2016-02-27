@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 well">
+      <!-- <button type="button" name="getInfo" ng-click="getTodos()">Get</button> -->
+      <form name="frm" ng-submit="addTodo()" class="form-inline todoForm">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">New</span>
+          <input name="newtodo" type="text" ng-model="newTodo" required class="form-control">
+          <span class="input-group-btn">
+            <button type="submit" ng-disabled="frm.$invalid" class="btn btn-primary">Go</button>
+          </span>
+        </div>
+        <button type="button" ng-click="clearCompleted()" class="btn btn-lg btn-danger pull-right">Clear Completed</button>
+      </form>
+      <ul class="list-group">
+        <li ng-repeat="todo in todos" class="list-group-item">
+          <input type="checkbox" ng-model="todo.done">
+          <span ng-class="{'done': todo.done}">{{todo.title}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
