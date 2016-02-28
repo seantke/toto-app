@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 well">
-      <!-- <button type="button" name="getInfo" ng-click="getTodos()">Get</button> -->
       <form name="frm" ng-submit="addTodo()" class="form-inline todoForm">
         <div class="input-group input-group-lg">
           <span class="input-group-addon">New</span>
@@ -12,12 +11,20 @@
         </div>
         <button type="button" ng-click="clearCompleted()" class="btn btn-lg btn-danger pull-right">Clear Completed</button>
       </form>
-      <ul class="list-group">
-        <li ng-repeat="todo in todos" class="list-group-item">
-          <input type="checkbox" ng-model="todo.done">
-          <span ng-class="{'done': todo.done}">{{todo.title}}</span>
-        </li>
-      </ul>
+      <div class="list-group">
+        <div class="list-group-item row active">
+          <div class="col-sm-2">Created By:</div>
+          <div class="col-sm-6">Note:</div>
+        </div>
+        <div ng-repeat="todo in todos" class="list-group-item row vertical-align">
+          <div class="col-sm-2">{{todo.createdBy}}</div>
+          <div class="col-sm-6">{{todo.title}}</div>
+          <div class="col-sm-2 col-sm-offset-2 btn-group" role="group">
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

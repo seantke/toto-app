@@ -5,3 +5,10 @@
 .todoForm{
   margin-bottom:50px;
 }
+.loginErrors{
+  color:red;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
