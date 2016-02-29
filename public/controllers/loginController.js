@@ -17,7 +17,7 @@
         username:$scope.loginInfo.username || refData.username,
         password:$scope.loginInfo.password || refData.password
       }
-      $http.post("/login", data).success(function(response){
+      $http.post("/users/login", data).success(function(response){
         // console.log(response);
         localStorage.setItem("user", response);
         $rootScope.username = localStorage.user;
@@ -39,7 +39,7 @@
         password:$scope.signUpInfo.password
       }
 
-      $http.post("/signup", data).success(function(response){
+      $http.post("/users/signup", data).success(function(response){
         // console.log(response);
 
       }).error(function(error){

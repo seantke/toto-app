@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": " ",
-  "scripts": {
-    "build": "babel --watch src -d lib"
-  },
+  "scripts": {},
   "author": "",
   "license": "BSD",
   "dependencies": {
@@ -20,6 +18,8 @@
     "morgan": "~1.7.0"
   },
   "devDependencies": {
-    "babel-cli": "~6.5.1"
+    "gulp": "~3.9.1",
+    "browser-sync": "~2.11.1",
+    "gulp-nodemon": "~2.0.6"
   }
 }
