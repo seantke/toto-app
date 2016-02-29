@@ -1,16 +1,30 @@
 (function(){
   angular.module("ToDo").controller("LoginController", function($scope, $rootScope, $http, $state){
+
     // Variables
-    $scope.signUpInfo = {
-      username: undefined,
-      password:undefined,
-      repeatPassword:undefined
-    };
-    $scope.loginInfo = {
-      username: undefined,
-      password:undefined
-    };
-    $scope.loginErrors = { };
+    $scope.signUpInfo = {};
+    $scope.loginInfo = {};
+    $scope.loginErrors = {};
+
+    (function(){
+      $rootScope.session = JSON.parse(localStorage.getItem("user"));
+      if(!$rootScope.session){
+        $state.go('login');
+      }
+      else{
+        $http.post("/users/loggedIn", $rootScope.session).success(function(response){
+          if(!response){
+            $scope.logUserOut();
+          }
+          else{
+            $state.go('application');
+          }
+        }).error(function(error){
+          console.error(error);
+        });
+      }
+    }());
+
     // Functions
     $scope.logUserIn = function(refData){
       var data = {
@@ -20,7 +34,7 @@
       $http.post("/users/login", data).success(function(response){
         // console.log(response);
         localStorage.setItem("user", response);
-        $rootScope.username = localStorage.user;
+        $rootScope.session = JSON.parse(localStorage.user);
         $state.go("application");
       }).error(function(error){
         $scope.loginErrors.logIn = "Username or Password Incorrect";

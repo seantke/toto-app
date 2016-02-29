@@ -6,7 +6,6 @@ angular.module('ToDo', ["ui.router"])
         url:"/",
         views: {
           todo:{
-            controller: "todoController",
             template:"<h1>Please Sign In</h1>"
           },
           login:{

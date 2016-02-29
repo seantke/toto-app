@@ -1,10 +1,12 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a href="#/" class="navbar-brand">ToDo App</a>
     </div>
     <div class="navbar-right">
-        <button type="button" class="btn btn-default" ng-click="logUserOut()">Log Out</button>
+      <p class="navbar-text">Logged In As: {{session.user}}</p>
+      <button type="button" class="btn btn-default navbar-btn" ng-click="logUserOut()">Log Out</button>
     </div>
+    </form>
   </div>
 </nav>

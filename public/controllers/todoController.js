@@ -1,24 +1,16 @@
 (function(){
   angular.module("ToDo").controller('todoController', ['$scope','$rootScope','$http','$state', function($scope, $rootScope, $http, $state){
-    if(!localStorage['user']){
-      $state.go('login');
-    }
-    else{
-      $rootScope.username = localStorage['user'];
-      $state.go('application');
-    }
-
     $scope.todos = [];
-
     $scope.getTodos = function(){
       var query = {
-        createdBy: $rootScope.username
+        createdBy: $rootScope.session.user
       };
       $http.post("/todos/get", query).success(function(data){
         //console.log(data);
         $scope.todos = [];
         for(index in data){
           $scope.todos.push({
+            "_id": data[index]._id,
             'title': data[index].title,
             'createdBy': data[index].createdBy,
             'done':data[index].done
@@ -30,10 +22,10 @@
     };
 
     $scope.addTodo = function(){
-      if($rootScope.username){
+      if($rootScope.session.user){
         var newTodo = {
           title:$scope.newTodo,
-          createdBy:$rootScope.username,
+          createdBy:$rootScope.session.user,
           done:false
         }
         $http.post("/todos/create", newTodo).success(function(response){
@@ -47,12 +39,6 @@
       else{
         console.error("not signed in");
       }
-    };
-
-    $scope.clearCompleted = function(){
-      $scope.todos = $scope.todos.filter(function(item){
-        return !item.done;
-      });
     };
 
     $scope.getTodos();
